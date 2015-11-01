@@ -1,0 +1,219 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222222;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  color: #666;
+}
+
+#thumbsList {
+  overflow: hidden;
+  display: block;
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1000px;
+  background: #eaeaea;
+  border: 1px solid #CCC;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+#thumbsList h3 {
+  margin-bottom: .5em;
+  font-size: 2.3em;
+  color: #333;
+}
+
+#thumbsList p {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+#thumbsList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#thumbsList ul li {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  overflow: hidden;
+  width: 33.3%;
+  height: 200px;
+  float: left;
+  background-color: #000;
+}
+
+#thumbsList ul li img {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  transition: all 0.3s linear;
+}
+
+#thumbsList ul li img:hover {
+  opacity: 0.5;
+  -webkit-transform: scale(2) rotate(30deg);
+  /* Safari */
+  -ms-transform: scale(2) rotate(30deg);
+  /* IE 9 */
+  transform: scale(2) rotate(30deg);
+  /* Standard syntax */
+  transition: transform 10s ease, opacity 1s ease;
+}
+
+#lightBox {
+  position: fixed;
+  top: -100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: opacity .5s ease-in-out;
+  -moz-transition: opacity .5s ease-in-out;
+  -o-transition: opacity .5s ease-in-out;
+  transition: opacity .5s ease-in-out;
+  overflow: hidden;
+}
+
+.lightBox-active {
+  display: block !important;
+  opacity: 1 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  transition: all 0.5s ease;
+}
+
+#prevImg, #nextImg {
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-color: #E60000;
+  transition: all 0.3s ease;
+}
+
+#prevImg:hover, #nextImg:hover, #nextImg:hover {
+  background-color: #B30000;
+  transition: all 0.3s ease;
+}
+
+#prevImg:after, #nextImg:after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 8px;
+  margin-top: 13px;
+  margin-left: 20px;
+  border-left: 2px solid #FFF;
+  border-bottom: 2px solid #FFF;
+  transform: rotate(45deg);
+}
+
+#nextImg {
+  right: 0;
+}
+
+#nextImg:after {
+  margin-left: 8px;
+  transform: rotate(225deg);
+}
+
+#closeLightbox-button {
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #B30000;
+  width: 50px;
+  height: 50px;
+  transition: all 0.7s ease;
+}
+
+#closeLightbox-button:hover {
+  background-color: red;
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+
+#closeLightbox-button:before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 2px;
+  height: 25px;
+  background-color: white;
+  left: 23px;
+  top: 12px;
+  -ms-transform: rotate(40deg);
+  /* IE 9 */
+  -webkit-transform: rotate(40deg);
+  /* Safari */
+  transform: rotate(40deg);
+}
+
+#closeLightbox-button:after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 2px;
+  height: 25px;
+  background-color: white;
+  left: 23px;
+  top: -13px;
+  -ms-transform: rotate(-40deg);
+  /* IE 9 */
+  -webkit-transform: rotate(-40deg);
+  /* Safari */
+  transform: rotate(-40deg);
+}
+
+#lightBox img {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 0%;
+  max-width: 0%;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+.active-image {
+  max-width: 90% !important;
+  max-height: 100% !important;
+  transition: all .5s ease !important;
+}
+
+@media (max-width: 1000px) {
+  #thumbsList ul li {
+    position: relative;
+    width: 50%;
+  }
+}
+@media (max-width: 680px) {
+  #thumbsList ul li {
+    position: relative;
+    width: 100%;
+  }
+}
